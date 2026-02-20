@@ -8,6 +8,12 @@ export default function Home() {
       titulo: 'Formulário de Login Simples',
       descricao: 'Formulário de login usando useState com um único objeto',
       rota: '/exercicio-1'
+    },
+    {
+      id: 2,
+      titulo: 'Lista de Categorias de Produtos',
+      descricao: 'Busca de categorias usando useEffect',
+      rota: '/exercicio-2'
     }
   ]
 
