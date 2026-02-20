@@ -14,6 +14,12 @@ export default function Home() {
       titulo: 'Lista de Categorias de Produtos',
       descricao: 'Busca de categorias usando useEffect',
       rota: '/exercicio-2'
+    },
+    {
+      id: 3,
+      titulo: 'Mensagem Logada no Console',
+      descricao: 'useEffect após primeira renderização e quando a query mudar',
+      rota: '/exercicio-3'
     }
   ]
 
