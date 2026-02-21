@@ -20,6 +20,12 @@ export default function Home() {
       titulo: 'Mensagem Logada no Console',
       descricao: 'useEffect após primeira renderização e quando a query mudar',
       rota: '/exercicio-3'
+    },
+    {
+      id: 4,
+      titulo: 'Preferência de Idioma do Usuário',
+      descricao: 'Gerenciamento de idioma usando Context API e useContext',
+      rota: '/exercicio-4'
     }
   ]
 
