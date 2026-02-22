@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react'
+import { useState, useReducer, useEffect } from 'react'
 import './PainelGlicemico.css'
 
 function fatorReducer(state, action) {
@@ -32,6 +32,14 @@ export default function PainelGlicemico() {
     dispatch({ type: 'SET_FIC', payload: 8 })
     dispatch({ type: 'SET_ALVO', payload: 90 })
   }
+
+  useEffect(() => {
+    console.log(`[Monitoramento] Glicemia alterada para: ${glicemiaAtual} mg/dL`)
+    
+    if (glicemiaAtual < 70) {
+      console.log('ALERTA: Hipoglicemia. Favor consumir carboidratos!')
+    }
+  }, [glicemiaAtual])
 
   return (
     <div className="painel-glicemico">
