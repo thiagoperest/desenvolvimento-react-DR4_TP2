@@ -1,11 +1,37 @@
-import { useState } from 'react'
+import { useState, useReducer } from 'react'
 import './PainelGlicemico.css'
+
+function fatorReducer(state, action) {
+  switch (action.type) {
+    case 'SET_FIC':
+      return {
+        ...state,
+        fic: action.payload
+      }
+    case 'SET_ALVO':
+      return {
+        ...state,
+        alvo: action.payload
+      }
+    default:
+      return state
+  }
+}
+
+const initialFatorState = {
+  fic: 10,
+  alvo: 100
+}
 
 export default function PainelGlicemico() {
   const [glicemiaAtual, setGlicemiaAtual] = useState(120)
   const [carboidratosRefeicao, setCarboidratosRefeicao] = useState(50)
-  const [fatorInsulinaCarbo, setFatorInsulinaCarbo] = useState(10)
-  const [glicemiaAlvo, setGlicemiaAlvo] = useState(100)
+  const [fatores, dispatch] = useReducer(fatorReducer, initialFatorState)
+
+  function handleAjusteRapido() {
+    dispatch({ type: 'SET_FIC', payload: 8 })
+    dispatch({ type: 'SET_ALVO', payload: 90 })
+  }
 
   return (
     <div className="painel-glicemico">
@@ -31,6 +57,15 @@ export default function PainelGlicemico() {
             onChange={(e) => setCarboidratosRefeicao(Number(e.target.value))}
           />
         </div>
+      </div>
+
+      <div className="ajuste-rapido">
+        <button onClick={handleAjusteRapido} className="btn-ajuste">
+          Ajuste Rápido
+        </button>
+        <p className="info-ajuste">
+          FIC: {fatores.fic} | Alvo: {fatores.alvo} mg/dL
+        </p>
       </div>
     </div>
   )

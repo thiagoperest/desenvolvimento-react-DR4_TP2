@@ -43,3 +43,37 @@
   outline: none;
   border-color: #0081f1;
 }
+
+.ajuste-rapido {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  text-align: center;
+}
+
+.btn-ajuste {
+  padding: 14px 28px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ajuste:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.info-ajuste {
+  margin: 15px 0 0 0;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
