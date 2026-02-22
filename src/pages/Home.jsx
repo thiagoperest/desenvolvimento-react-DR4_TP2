@@ -26,6 +26,12 @@ export default function Home() {
       titulo: 'Preferência de Idioma do Usuário',
       descricao: 'Gerenciamento de idioma usando Context API e useContext',
       rota: '/exercicio-4'
+    },
+    {
+      id: 5,
+      titulo: 'Descontos a um Carrinho de Compras',
+      descricao: 'Gerenciamento de estado com useReducer',
+      rota: '/exercicio-5'
     }
   ]
 
