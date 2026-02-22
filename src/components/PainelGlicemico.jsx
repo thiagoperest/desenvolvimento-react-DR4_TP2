@@ -1,34 +1,13 @@
-import { useState, useReducer, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useContext } from 'react'
+import { FatorContext } from '../contexts/FatorContext'
 import './PainelGlicemico.css'
 
 const FSI = 50
 
-function fatorReducer(state, action) {
-  switch (action.type) {
-    case 'SET_FIC':
-      return {
-        ...state,
-        fic: action.payload
-      }
-    case 'SET_ALVO':
-      return {
-        ...state,
-        alvo: action.payload
-      }
-    default:
-      return state
-  }
-}
-
-const initialFatorState = {
-  fic: 10,
-  alvo: 100
-}
-
 export default function PainelGlicemico() {
   const [glicemiaAtual, setGlicemiaAtual] = useState(120)
   const [carboidratosRefeicao, setCarboidratosRefeicao] = useState(50)
-  const [fatores, dispatch] = useReducer(fatorReducer, initialFatorState)
+  const { fatores, dispatch } = useContext(FatorContext)
 
   function handleAjusteRapido() {
     dispatch({ type: 'SET_FIC', payload: 8 })

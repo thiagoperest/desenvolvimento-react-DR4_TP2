@@ -1,5 +1,7 @@
 import BotaoVoltar from '../components/BotaoVoltar'
 import PainelGlicemico from '../components/PainelGlicemico'
+import ExibirFatores from '../components/ExibirFatores'
+import { FatorProvider } from '../contexts/FatorContext'
 import './MiniProjeto.css'
 
 export default function MiniProjeto() {
@@ -12,7 +14,10 @@ export default function MiniProjeto() {
       </div>
 
       <div className="mini-projeto-content">
-        <PainelGlicemico />
+        <FatorProvider>
+          <ExibirFatores />
+          <PainelGlicemico />
+        </FatorProvider>
       </div>
     </div>
   )
