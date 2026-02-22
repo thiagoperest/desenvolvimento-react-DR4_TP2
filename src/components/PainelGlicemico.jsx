@@ -1,5 +1,7 @@
-import { useState, useReducer, useEffect } from 'react'
+import { useState, useReducer, useEffect, useMemo } from 'react'
 import './PainelGlicemico.css'
+
+const FSI = 50
 
 function fatorReducer(state, action) {
   switch (action.type) {
@@ -41,6 +43,14 @@ export default function PainelGlicemico() {
     }
   }, [glicemiaAtual])
 
+  const doseCorretiva = useMemo(() => {
+    const diferenca = glicemiaAtual - fatores.alvo
+    if (diferenca <= 0) {
+      return 0
+    }
+    return diferenca / FSI
+  }, [glicemiaAtual, fatores.alvo])
+
   return (
     <div className="painel-glicemico">
       <h2>Painel de Controle Glicêmico</h2>
@@ -74,6 +84,14 @@ export default function PainelGlicemico() {
         <p className="info-ajuste">
           FIC: {fatores.fic} | Alvo: {fatores.alvo} mg/dL
         </p>
+      </div>
+
+      <div className="dose-corretiva">
+        <h3>Dose de Correção</h3>
+        <p className="dose-valor">{doseCorretiva.toFixed(2)} U</p>
+        {doseCorretiva === 0 && (
+          <p className="dose-info">Glicemia dentro ou abaixo do alvo. Sem correção necessária.</p>
+        )}
       </div>
     </div>
   )
