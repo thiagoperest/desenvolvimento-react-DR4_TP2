@@ -32,6 +32,12 @@ export default function Home() {
       titulo: 'Descontos a um Carrinho de Compras',
       descricao: 'Gerenciamento de estado com useReducer',
       rota: '/exercicio-5'
+    },
+    {
+      id: 6,
+      titulo: 'Largura Total Exibida Imediatamente',
+      descricao: 'Medição de DOM com useRef e useLayoutEffect - sem flicker',
+      rota: '/exercicio-6'
     }
   ]
 
