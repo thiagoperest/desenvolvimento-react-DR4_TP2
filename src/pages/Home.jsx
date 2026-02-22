@@ -38,6 +38,12 @@ export default function Home() {
       titulo: 'Largura Total Exibida Imediatamente',
       descricao: 'Medição de DOM com useRef e useLayoutEffect - sem flicker',
       rota: '/exercicio-6'
+    },
+    {
+      id: 7,
+      titulo: 'Mini Projeto',
+      descricao: 'Calculo de Insulina',
+      rota: '/mini-projeto'
     }
   ]
 
