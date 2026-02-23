@@ -1,0 +1,27 @@
+.exercicio-container {
+  background-color: #0081f1;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: white;
+  opacity: 0.9;
+}
+
+.exercicio-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}

@@ -1,0 +1,63 @@
+.home-container {
+  background-color: #0081f1;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.exercicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exercicio-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.exercicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.exercicio-card h2 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #0081f1;
+}
+
+.exercicio-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.4rem;
+  color: #0081f1;
+}
+
+.exercicio-card p {
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #333;
+}
