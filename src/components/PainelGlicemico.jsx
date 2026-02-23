@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useContext } from 'react'
+import { useState, useEffect, useMemo, useContext, useRef, useLayoutEffect } from 'react'
 import { FatorContext } from '../contexts/FatorContext'
 import './PainelGlicemico.css'
 
@@ -29,6 +29,21 @@ export default function PainelGlicemico() {
     }
     return diferenca / FSI
   }, [glicemiaAtual, fatores.alvo])
+
+  const doseRefeicao = carboidratosRefeicao / fatores.fic
+  const doseTotal = doseRefeicao + doseCorretiva
+
+  const doseTotalRef = useRef(null)
+
+  useLayoutEffect(() => {
+    if (doseTotalRef.current && doseTotal > 15) {
+      doseTotalRef.current.style.borderColor = 'red'
+      doseTotalRef.current.style.borderWidth = '4px'
+    } else if (doseTotalRef.current) {
+      doseTotalRef.current.style.borderColor = '#0081f1'
+      doseTotalRef.current.style.borderWidth = '4px'
+    }
+  }, [doseTotal])
 
   return (
     <div className="painel-glicemico">
@@ -70,6 +85,18 @@ export default function PainelGlicemico() {
         <p className="dose-valor">{doseCorretiva.toFixed(2)} U</p>
         {doseCorretiva === 0 && (
           <p className="dose-info">Glicemia dentro ou abaixo do alvo. Sem correção necessária.</p>
+        )}
+      </div>
+
+      <div className="dose-total" ref={doseTotalRef}>
+        <h3>Dose Total de Insulina (Bolus)</h3>
+        <p className="dose-total-valor">{doseTotal.toFixed(2)} U</p>
+        <div className="dose-detalhes">
+          <p>Dose Refeição: {doseRefeicao.toFixed(2)} U</p>
+          <p>Dose Correção: {doseCorretiva.toFixed(2)} U</p>
+        </div>
+        {doseTotal > 15 && (
+          <p className="dose-alerta">ATENÇÃO: Dose alta! Verifique os valores.</p>
         )}
       </div>
     </div>
